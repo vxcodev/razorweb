@@ -1,0 +1,17 @@
+- Sử dụng thư viện Bogus để tạo dữ liệu fake
+
+GIT:
+Tạo file gitignore: dotnet new gitignore 
+Tạo thư mục git trong dự án: git init
+Đánh chỉ mục ở tất cả các file lưu trữ hiện tại: git add .
+Thực hiện commit: git commit -m "Nội dung commit"
+Xem log: git log --oneline
+Xem nhánh: git branch
+Xem trạng thái: git status
+Tạo nhánh: git branch Ten_nhanh
+Chuyển nhánh: git checkout Ten_nhanh
+Tạo nhánh và chuyển: git checkout -b Ten_nhanh
+Trên github tạo 1 dự án: ten_du_an
+Tạo liên kết giữa local và trên git: git remote add origin url_repository
+Sau khi có liên kết thực hiện đẩy tất cả các nhánh dữ liệu lên: git push --all
+Đẩy riêng từng nhánh: git push -u origin Ten_nhanh
