@@ -1,0 +1,43 @@
+@page "/blog/detail/{id:int}"
+@model Razorweb.Pages_Blog.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Chi tiết bài viết</h1>
+
+<div>
+    <h5 class="text-justify text-bold">@Model.Article.Title</h5>
+    <p class="font-italic text-right">@Html.DisplayFor(model => model.Article.Created)</p>
+    <hr />
+    <div class="text-justify">
+        @* @Html.DisplayFor(model => model.Article.Content) *@
+        @Html.Raw(Model.Article.Content)
+    </div>
+    <hr>
+    @* <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Created)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Created)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Content)
+        </dd>
+    </dl> *@
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Article.Id">Sửa bài viết</a> |
+    <a asp-page="./Index">Danh sách bài viết</a>
+</div>

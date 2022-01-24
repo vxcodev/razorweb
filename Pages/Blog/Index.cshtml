@@ -1,0 +1,63 @@
+@page
+@model Razorweb.Pages_Blog.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 0;
+    var pagingmodel = new VX.Hellers.PagingModel(){
+        currentpage = Model.currentPage,
+        countpages = Model.countPages,
+        generateUrl = (int? p)=>Url.Page("/Blog/Index",new{p=p})
+    };
+}
+
+
+
+<h1>Danh sách bài viết</h1>
+<form method="get" asp-page="./Index">
+    <label asp-for="@Model.SearchString"></label>
+    <input asp-for="@Model.SearchString" type="text" value="@Model.SearchString">
+    <button type="submit">Tìm</button> <br>
+    <span class="text-danger font-italic" asp-validation-for="@Model.SearchString"></span>
+</form>
+
+<p>
+    <a asp-page="Create">Thêm mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article[0].Created)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Article) {
+        <tr>
+            <td>
+                @(++i)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Sửa</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Chi tiết</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<partial name="_PagingVX" model="@pagingmodel" />

@@ -1,9 +1,11 @@
 ﻿@page
-@using CS13v01RazorEntity.Models
+@using Razorweb.Models
+@using Razorweb.Pages
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
     var posts = ViewData["posts"] as List<Article>;
+    
 }
 
 <div class="text-center">

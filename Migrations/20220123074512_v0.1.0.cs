@@ -1,10 +1,10 @@
 ﻿using System;
 using Bogus;
-using CS13v01RazorEntity.Models;
+using Razorweb.Models;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System.Collections.Generic;
 
-namespace CS13v01RazorEntity.Migrations
+namespace Razorweb.Migrations
 {
     public partial class v010 : Migration
     {

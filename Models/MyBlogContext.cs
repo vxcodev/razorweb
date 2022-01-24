@@ -1,7 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace CS13v01RazorEntity.Models
+namespace Razorweb.Models
 {
     public class MyBlogContext : DbContext
     {
