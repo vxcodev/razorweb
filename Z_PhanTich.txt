@@ -21,3 +21,25 @@ Sau khi có liên kết thực hiện đẩy tất cả các nhánh dữ liệu 
 ex: dotnet aspnet-codegenerator razorpage -m razorweb.Models.Article -dc razorweb.Models.MyBlogContext -outDir Pages/Blog -udl --referenceScriptLibraries      
 
 */ Bỏ checkbox : editor.formatOnSave trong cài đặt vscode
+
+Tao dự án nhánh B3:
+1. Clone branch B1 (git clone url_github)
+2. Checkout branch B2 (git checkout B2)
+3. Create Branch B3 (git branch -b B3)
+---------------------------Identity----------------------------------------------
+IDentity: Được thiết kế để làm việc với 1 cơ sở dữ liệu
+1. Authentication: Xác định danh tính: Login/Logout/Register
+2. Authorization: Xác định quyền truy cập
+
+Ex: Trong MyBlogContext thay vì kế thừa DbContext ta đổi thành kế thừa IDentityDbContext
+Trong ConfigureServices đăng ký các dịch vụ của IDentity
+3. Sử dụng 2 dịch vụ sau để kiểm tra thông tin và dữ liệu user đăng nhập: SignInManager<AppUser> và UserManager<AppUser>
+Để sử dụng 2 dịch vụ này thì ta chỉ cần inject 2 dịch vụ này vào
+4. Properties User(chưa thông tin của user) được thiết lập trong 2 Middleware: Authentication và Authorization
+Từ properties User ta có thể sử dụng dịch vụ SignInManager để check xem user đăng nhập hoặc chưa
+
+Phát sinh code (scaffold) Identity:
+    dotnet aspnet-codegenerator identity -dc Duong_dan_DbContext
+
+--------------------Note---------------------------------
+Query trong Url phải để cả chữ hoa, chữ thường
